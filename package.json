@@ -1,0 +1,23 @@
+{
+  "name": "nosqlworkouttracker",
+  "version": "1.0.0",
+  "description": "workout tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordanalexis6/NoSQLWorkoutTracker.git"
+  },
+  "keywords": [
+    "workout",
+    "tracker"
+  ],
+  "author": "Jordan Neill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jordanalexis6/NoSQLWorkoutTracker/issues"
+  },
+  "homepage": "https://github.com/jordanalexis6/NoSQLWorkoutTracker#readme"
+}
