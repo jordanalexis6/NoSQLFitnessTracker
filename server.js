@@ -86,6 +86,45 @@ app.get("/populateduser", (req, res) => {
     });
 });
 
+app.get("/api/workouts", (req, res) => {
+  db.Workout.find({})
+    .then((response) => {
+      res.json(response);
+    })
+    .catch((err) => {
+      res.json(err.message);
+    });
+});
+
+app.put("/api/workouts/:id", async (req, res) => {
+  db.Workout.update(
+    { _id: mongoose.Types.ObjectId(req.params.id) },
+    { $push: { exercises: req.body } },
+    { new: true }
+  )
+    .then((data) => res.json(data))
+    .catch((err) => res.json(err));
+});
+
+app.post("/api/workouts", async ({ body }, res) => {
+  try {
+    let data = await db.Workout.create(body);
+    console.log({ data });
+    res.json(data);
+  } catch ({ message }) {
+    res.json(message);
+  }
+});
+
+app.get("/api/workouts/range", async (req, res) => {
+  try {
+    let data = await db.Workout.find({}).sort({ day: -1 }).limit(7);
+    res.json(data);
+  } catch (error) {
+    res.json(error);
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
