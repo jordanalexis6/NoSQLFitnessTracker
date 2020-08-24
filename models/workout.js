@@ -2,18 +2,6 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const LibrarySchema = new Schema({
-  name: {
-    type: String,
-    unique: true,
-  },
-  books: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Book",
-    },
-  ],
-});
 //schema: exercises fields
 const ExerciseSchema = new Schema({
   type: { type: String, trim: true, required: true },
@@ -24,6 +12,6 @@ const ExerciseSchema = new Schema({
   sets: { type: Number, trim: true, required: true },
 });
 
-const Library = mongoose.model("Library", LibrarySchema);
+const Exercise = mongoose.model("Exercise", ExerciseSchema);
 
-module.exports = Library;
+module.exports = Exercise;
