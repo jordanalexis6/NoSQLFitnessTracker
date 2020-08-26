@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 //schema: exercises fields
 const ExerciseSchema = new Schema({
   day: {
-    type: Number,
+    type: Date,
     default: new Date().setDate(new Date().getDate()),
   },
   exercises: Array,
